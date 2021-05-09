@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="androidx.lifecycle.LiveData"/>
+        <import type="com.oliversanz.marvel.domain.model.HeroModel"/>
+
+        <variable name="hero" type="LiveData&lt;HeroModel>" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivHeroImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:url="@{ hero.image.detailUrl }"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/purple_200"
+                tools:layout_height="200dp"
+                />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ hero.getDescriptionText() }"
+                android:padding="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivHeroImage"
+                tools:text="@tools:sample/lorem"/>
+
+            <TextView
+                android:id="@+id/tvUrls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Urls"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDescription"
+                android:visibility="@{ (hero.url.size() > 0) ? View.VISIBLE : View.GONE }"
+                tools:text="@tools:sample/lorem"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUrls"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/list_item_url"
+                tools:itemCount="2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvUrls"
+                android:visibility="@{ (hero.url.size() > 0) ? View.VISIBLE : View.GONE }"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

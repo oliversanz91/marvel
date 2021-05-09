@@ -9,7 +9,7 @@ data class Series(
     @SerializedName("collectionURI")
     val collectionURI: String?,
     @SerializedName("items")
-    val items: List<ItemXX>?,
+    val items: List<Item>?,
     @SerializedName("returned")
     val returned: String?
 )
