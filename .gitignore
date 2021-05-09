@@ -231,3 +231,5 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/android,androidstudio
 
+# Fichero con las api keys
+**/secrets.xml
