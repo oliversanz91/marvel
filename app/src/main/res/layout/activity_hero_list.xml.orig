@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".android.herolist.HeroListActivity">
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+=======
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.oliversanz.marvel.android.ui.herolist.HeroListViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:context=".android.ui.herolist.HeroListActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHeroList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/list_item_hero"
+            android:visibility="@{ viewModel.heroList.size() > 0 }"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="No hay datos disponibles"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:visibility="@{ viewModel.heroList.size() &lt;= 0 }"
+            tools:visibility="gone"
+            />
+
+    </FrameLayout>
+
+</layout>
+>>>>>>> release/v1.0.0
