@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
+import com.oliversanz.marvel.data.network.exceptions.ShowMessageException
 import com.oliversanz.marvel.databinding.ActivityBaseBinding
 
 open class BaseActivity : AppCompatActivity() {
@@ -31,8 +32,16 @@ open class BaseActivity : AppCompatActivity() {
 
     fun showError(throwable: Throwable) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage(throwable.message ?: throwable.localizedMessage)
+
+        if (throwable is ShowMessageException) {
+            builder.setTitle(throwable.title)
+            builder.setMessage(throwable.message)
+        }
+        else {
+            builder.setTitle("Error")
+            builder.setMessage(throwable.message ?: throwable.localizedMessage)
+        }
+
         builder.setPositiveButton("Aceptar") { _, _ -> }
         builder.show()
     }

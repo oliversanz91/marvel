@@ -11,7 +11,7 @@ interface HeroApi {
     @GET(ENDPOINT_HERO_LIST)
     suspend fun getHeroList(
         @Query(QUERY_OFFSET) offset: Int,
-        @Query(QUERY_LIMIT) limit: Int = 20
+        @Query(QUERY_LIMIT) limit: Int = PAGE_SIZE
     ): HeroListResponse
 
 

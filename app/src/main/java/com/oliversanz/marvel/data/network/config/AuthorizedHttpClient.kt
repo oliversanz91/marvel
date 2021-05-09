@@ -1,7 +1,13 @@
 package com.oliversanz.marvel.data.network.config
 
+import android.util.Log
+import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
+import com.oliversanz.marvel.data.network.entity.ServerError
+import com.oliversanz.marvel.data.network.exceptions.ShowMessageException
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import java.lang.Exception
 import java.math.BigInteger
 import java.security.MessageDigest
 
@@ -10,14 +16,16 @@ class AuthorizedHttpClient(
     private val privateKey: String
 ) {
 
+    private val gson: Gson = Gson()
 
     fun getClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
-        builder.addNetworkInterceptor(getInterceptor())
+        builder.addNetworkInterceptor(getAuthInterceptor())
+        builder.addInterceptor(getErrorInterceptor())
         return builder.build()
     }
 
-    private fun getInterceptor(): Interceptor {
+    private fun getAuthInterceptor(): Interceptor {
         return Interceptor { chain ->
 
             val timeStamp = System.currentTimeMillis().toString()
@@ -32,6 +40,30 @@ class AuthorizedHttpClient(
 
             request = request.newBuilder().url(url).build()
             chain.proceed(request)
+        }
+    }
+
+    private fun getErrorInterceptor(): Interceptor {
+        return Interceptor { chain ->
+            val request = chain.request()
+            val response = chain.proceed(request)
+
+            if (response.code != 200) {
+                val body = response.body?.string()
+                Log.e("--->", "[${response.code}] $body")
+                val error =
+                    try { body?.let { gson.fromJson(it, ServerError::class.java) } }
+                    catch (e: Exception) { null }
+
+                throw if (error != null) {
+                    ShowMessageException(error.code, error.message)
+                }
+                else {
+                    ShowMessageException()
+                }
+            }
+
+            response
         }
     }
 
