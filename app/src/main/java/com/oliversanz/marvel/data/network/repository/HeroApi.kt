@@ -22,9 +22,11 @@ interface HeroApi {
         private const val QUERY_OFFSET = "offset"
         private const val QUERY_LIMIT = "limit"
         private const val PATH_HERO_ID = "heroId"
+        const val PAGE_SIZE = 20
 
         private const val ENDPOINT_HERO_LIST = "v1/public/characters"
         private const val ENDPOINT_HERO_DETAIL = "v1/public/characters/{$PATH_HERO_ID}"
+
     }
 
 }

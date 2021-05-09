@@ -1,6 +1,7 @@
 package com.oliversanz.marvel.data.network.repository
 
 import com.oliversanz.marvel.data.network.entity.HeroResponseItem
+import com.oliversanz.marvel.data.network.repository.HeroApi.Companion.PAGE_SIZE
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
@@ -11,7 +12,7 @@ class HeroRepositoryImpl(
 
     override suspend fun getHeroList(offset: Int?): List<HeroResponseItem> {
         return withContext(dispatcher) {
-            val response = heroApi.getHeroList(offset ?: 0)
+            val response = heroApi.getHeroList((offset ?: 0) * PAGE_SIZE)
             response.responseData?.heroList.orEmpty()
         }
     }

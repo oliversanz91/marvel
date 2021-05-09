@@ -3,19 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data/>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.oliversanz.marvel.android.ui.herolist.HeroListViewModel" />
+    </data>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         tools:context=".android.ui.herolist.HeroListActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHeroList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/list_item_hero"/>
+            tools:listitem="@layout/list_item_hero"
+            android:visibility="@{ viewModel.heroList.size() > 0 }"/>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="No hay datos disponibles"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:visibility="@{ viewModel.heroList.size() &lt;= 0 }"
+            tools:visibility="gone"
+            />
+
+    </FrameLayout>
 
 </layout>

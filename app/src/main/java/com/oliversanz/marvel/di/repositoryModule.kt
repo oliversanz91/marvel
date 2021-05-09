@@ -15,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val repositoryModule = module {
 
-
     single<OkHttpClient>(named("authorized-client")) {
         AuthorizedHttpClient(
             publicKey = get<Context>().getString(R.string.MARVEL_API_KEY),
@@ -39,6 +38,5 @@ val repositoryModule = module {
     single<HeroRepository> {
         HeroRepositoryImpl(heroApi = get(), dispatcher = Dispatchers.IO)
     }
-
 
 }

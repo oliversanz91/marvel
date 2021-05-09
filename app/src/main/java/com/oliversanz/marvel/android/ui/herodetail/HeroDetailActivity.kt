@@ -3,6 +3,7 @@ package com.oliversanz.marvel.android.ui.herodetail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.recyclerview.widget.RecyclerView
 import com.oliversanz.marvel.android.base.BaseActivity
 import com.oliversanz.marvel.android.ext.openUrl
 import com.oliversanz.marvel.databinding.ActivityHeroDetailBinding
