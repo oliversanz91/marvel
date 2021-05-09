@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="url"
+            type="com.oliversanz.marvel.domain.model.UrlModel" />
+
+        <variable
+            name="clickHandler"
+            type="com.oliversanz.marvel.android.ui.herodetail.HeroDetailActivity.UrlClickHandler" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:onClick="@{ () -> clickHandler.openUrl(url.url) }">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ url.type }"
+            app:drawableStartCompat="@drawable/icn_link"
+            android:drawablePadding="10dp"
+            android:gravity="start|center_vertical"
+            android:padding="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Type"
+            />
+
+    </LinearLayout>
+</layout>

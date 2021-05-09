@@ -4,12 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="hero" type="com.oliversanz.marvel.domain.model.HeroListModel" />
+        <variable
+            name="hero"
+            type="com.oliversanz.marvel.domain.model.HeroListModel" />
+
+        <variable
+            name="clickHandler"
+            type="com.oliversanz.marvel.android.ui.herolist.HeroListActivity.ClickHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:onClick="@{ () -> clickHandler.onItemClick(hero.id) }">
 
         <ImageView
             android:id="@+id/ivPhoto"

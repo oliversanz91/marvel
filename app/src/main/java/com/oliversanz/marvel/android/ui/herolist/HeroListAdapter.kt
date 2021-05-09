@@ -1,4 +1,4 @@
-package com.oliversanz.marvel.android.herolist
+package com.oliversanz.marvel.android.ui.herolist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,9 @@ import com.oliversanz.marvel.BR
 import com.oliversanz.marvel.databinding.ListItemHeroBinding
 import com.oliversanz.marvel.domain.model.HeroListModel
 
-class HeroListAdapter : RecyclerView.Adapter<HeroListAdapter.HeroListViewHolder>() {
+class HeroListAdapter(
+    private val clickHandler: HeroListActivity.ClickHandler
+) : RecyclerView.Adapter<HeroListAdapter.HeroListViewHolder>() {
 
     private var data: List<HeroListModel> = emptyList()
 
@@ -22,6 +24,7 @@ class HeroListAdapter : RecyclerView.Adapter<HeroListAdapter.HeroListViewHolder>
 
     override fun onBindViewHolder(holder: HeroListViewHolder, position: Int) {
         holder.binding.setVariable(BR.hero, data[holder.adapterPosition])
+        holder.binding.setVariable(BR.clickHandler, clickHandler)
     }
 
     fun updateData(newData: List<HeroListModel>){

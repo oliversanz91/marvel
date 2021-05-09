@@ -3,7 +3,7 @@ package com.oliversanz.marvel.data.network.entity
 
 import com.google.gson.annotations.SerializedName
 
-data class HeroListItem(
+data class Result(
     @SerializedName("comics")
     val comics: Comics?,
     @SerializedName("description")
@@ -11,7 +11,7 @@ data class HeroListItem(
     @SerializedName("events")
     val events: Events?,
     @SerializedName("id")
-    val id: String?,
+    val id: Int?,
     @SerializedName("modified")
     val modified: String?,
     @SerializedName("name")

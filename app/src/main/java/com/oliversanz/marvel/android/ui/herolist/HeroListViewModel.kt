@@ -1,4 +1,4 @@
-package com.oliversanz.marvel.android.herolist
+package com.oliversanz.marvel.android.ui.herolist
 
 import androidx.lifecycle.*
 import com.oliversanz.marvel.domain.model.HeroListModel
