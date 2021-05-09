@@ -10,7 +10,7 @@
 
         <variable
             name="clickHandler"
-            type="com.oliversanz.marvel.android.herolist.HeroListActivity.ClickHandler" />
+            type="com.oliversanz.marvel.android.ui.herolist.HeroListActivity.ClickHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

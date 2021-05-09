@@ -1,11 +1,9 @@
-package com.oliversanz.marvel.android.herodetail
+package com.oliversanz.marvel.android.ui.herodetail
 
 import androidx.lifecycle.*
-import com.oliversanz.marvel.domain.model.HeroListModel
 import com.oliversanz.marvel.domain.model.HeroModel
 import com.oliversanz.marvel.domain.model.ResultEvent
 import com.oliversanz.marvel.domain.usecases.GetHeroDetailUseCase
-import com.oliversanz.marvel.domain.usecases.GetHeroListUseCase
 
 class HeroDetailViewModel(
     private val getHeroDetailUseCase: GetHeroDetailUseCase

@@ -1,10 +1,10 @@
-package com.oliversanz.marvel.android.herolist
+package com.oliversanz.marvel.android.ui.herolist
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.oliversanz.marvel.android.base.BaseActivity
-import com.oliversanz.marvel.android.herodetail.HeroDetailActivity
+import com.oliversanz.marvel.android.ui.herodetail.HeroDetailActivity
 import com.oliversanz.marvel.databinding.ActivityHeroListBinding
 import com.oliversanz.marvel.domain.model.ResultEvent
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -1,11 +1,10 @@
-package com.oliversanz.marvel.android.herodetail
+package com.oliversanz.marvel.android.ui.herodetail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.oliversanz.marvel.BR
 import com.oliversanz.marvel.databinding.ListItemUrlBinding
-import com.oliversanz.marvel.domain.model.HeroListModel
 import com.oliversanz.marvel.domain.model.UrlModel
 
 class UrlListAdapter(

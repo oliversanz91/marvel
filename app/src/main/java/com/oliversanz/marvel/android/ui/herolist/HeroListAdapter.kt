@@ -1,4 +1,4 @@
-package com.oliversanz.marvel.android.herolist
+package com.oliversanz.marvel.android.ui.herolist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

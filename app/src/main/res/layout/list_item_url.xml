@@ -10,7 +10,7 @@
 
         <variable
             name="clickHandler"
-            type="com.oliversanz.marvel.android.herodetail.HeroDetailActivity.UrlClickHandler" />
+            type="com.oliversanz.marvel.android.ui.herodetail.HeroDetailActivity.UrlClickHandler" />
     </data>
 
     <LinearLayout
